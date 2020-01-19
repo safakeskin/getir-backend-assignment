@@ -10,7 +10,8 @@ db.on(
     'disconnected',
     msg => {
         console.log(`MongoDB disconnected! Message: ${msg}`);
-        connectDb();
+        console.log("Will be tried in 5 seconds.");
+        setTimeout(connectDb, 5000);
     }
 );
 
@@ -20,7 +21,8 @@ const handleError = (error): void => {
         .then(msg => {
             console.log("Disconnected!");
             console.log(`Message: ${msg}`);
-            // connectDb()
+            console.log("Will be tried in 5 seconds.");
+            setTimeout(connectDb, 5000);
         })
         .catch(handleError);
 }
@@ -35,7 +37,9 @@ export const connectDb = (): void => {
             console.log("Connected to MongoDb");
         })
         .catch(handleError);
-}
+};
+
+export const isConnected = (): boolean => db.readyState === 1;
 
 // db.once('open', () => console.log('MongoDB connection opened!'));
 // db.on('reconnected', () => console.log('MongoDB reconnected!'));
