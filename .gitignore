@@ -111,3 +111,6 @@ assignment.pdf
 
 # vscode config directory
 .vscode
+
+# temp directory
+temp
