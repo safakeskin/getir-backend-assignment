@@ -30,7 +30,6 @@ export const connectDb = (): void => {
     const pass = process.env.DB_PASS;
     const casePath = process.env.CASE_PATH;
     const connectStr = `mongodb://${user}:${pass}@ds249623.mlab.com:49623/${casePath}`;
-    console.log(connectStr);
     mongoose.connect(connectStr, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => {
             console.log("Connected to MongoDb");

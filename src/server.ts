@@ -1,20 +1,16 @@
 import express = require("express");
-import dotenv = require("dotenv");
-
-dotenv.config();
-
-const port = process.env.API_PORT;
+import recordRuter from "./routes/record";
 
 const app = express();
 
 app.use(express.json());
 // app.use(express.urlencoded());
 
+app.use("/record", recordRuter);
+
 app.post('/', (req: express.Request, res: express.Response) => {
-    console.log("Incoming request to index(/)!");
-    res.send("Hello, world!");
+    const message = "In order to interact with api, please read README.md";
+    res.send(message);
 });
 
-app.listen(port, () => {
-    console.log(`If no error, server is listening at port: ${port} now.`);
-} );
+export default app;
