@@ -1,4 +1,4 @@
-import Errors from "./types/errors";
+import Errors from "./errors";
 const {MissingFieldError} = Errors;
 
 interface HandlerArg {

@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import Errors from "./Errors";
+import Errors from "./types/errors";
 import { isConnected } from "./db";
 
 const {MongoConnectionError} = Errors;

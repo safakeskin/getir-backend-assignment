@@ -1,6 +1,6 @@
 import { HandlerArg } from "../types";
 import { RecordModel as model } from "../models/record";
-import Errors from "../Errors";
+import Errors from "../types/errors";
 import { FindBetweenBody } from "../types";
 import { checkConnection } from "../util";
 
