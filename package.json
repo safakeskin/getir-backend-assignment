@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "bash prestart.sh",
     "start": "node ./dist/bin/www.js",
-    "test": "jest"
+    "test": "jest",
+    "pretest": "bash tests/pretest.sh"
   },
   "keywords": [
     "api",
