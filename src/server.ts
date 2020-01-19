@@ -9,7 +9,7 @@ app.use(express.json());
 app.use("/record", recordRuter);
 
 app.get('/', (req, res) => {
-    res.redirect("https://keskinsaf-getir-assignment.herokuapp.com/");
+    res.status(301).redirect("https://keskinsaf-getir-assignment.herokuapp.com/");
 });
 
 app.post('/', (req: express.Request, res: express.Response) => {
