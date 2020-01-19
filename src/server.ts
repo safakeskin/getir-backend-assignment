@@ -9,8 +9,8 @@ app.use(express.json());
 app.use("/record", recordRuter);
 
 app.get('/', (req, res) => {
-    res.send("Hello, world!");
-})
+    res.redirect("https://keskinsaf-getir-assignment.herokuapp.com/");
+});
 
 app.post('/', (req: express.Request, res: express.Response) => {
     const message = "In order to interact with api, please read README.md";
