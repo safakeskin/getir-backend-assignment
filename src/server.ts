@@ -3,13 +3,15 @@ import recordRuter from "./routes/record";
 
 const app = express();
 
+const projectBaseUrl = "https://github.com/keskinsaf/getir-backend-assignment";
+
 app.use(express.json());
 // app.use(express.urlencoded());
 
 app.use("/record", recordRuter);
 
 app.get('/', (req, res) => {
-    res.status(301).redirect("https://keskinsaf-getir-assignment.herokuapp.com/");
+    res.status(301).redirect(projectBaseUrl);
 });
 
 app.post('/', (req: express.Request, res: express.Response) => {
