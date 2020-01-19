@@ -4,7 +4,7 @@ import server from "../server";
 
 dotenv.config();
 
-const port = process.env.API_PORT;
+const port = process.env.PORT || process.env.API_PORT;
 
 connectDb();
 server.listen(port, () => {

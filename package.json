@@ -4,6 +4,7 @@
   "description": "api with one endpoint in order to fetch data with POST request",
   "main": "dist/index.js",
   "scripts": {
+    "prestart": "bash prestart.sh",
     "start": "node ./dist/bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
