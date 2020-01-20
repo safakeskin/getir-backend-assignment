@@ -21,6 +21,16 @@ You can read documentation.pdf in order to have an idea about general structure 
 
 ## Deployment
 
+- Create an .env file in your root directory and enter required values for fields listed below.
+
+  - API_PORT=[port_number]
+
+  - DB_USER=[mongodb_username]
+
+  - DB_PASS=[mongodb_user_password]
+
+  - CASE_PATH=[auth_database]
+
 ### Local with Docker
 
 #### Dependencies
@@ -45,17 +55,7 @@ You can use [Docker](https://www.docker.com/) in order to run API inside a conta
 
 You can use run app at your local system by following steps listed below in project directory.
 
-1. Create an .env file in your root directory and enter required values for fields listed below.
-
-    - API_PORT=[port_number]
-
-    - DB_USER=[mongodb_username]
-
-    - DB_PASS=[mongodb_user_password]
-
-    - CASE_PATH=[auth_database]
-
-2. install dependencies
+1. install dependencies
 
     ```bash script
     npm i
@@ -63,7 +63,7 @@ You can use run app at your local system by following steps listed below in proj
     # yarn
     ```
 
-3. Run project
+2. Run project
 
     ```bash script
     npm start
