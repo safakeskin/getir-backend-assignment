@@ -1,8 +1,11 @@
-import {Request, Response} from "express";
+import {Request, Response, response} from "express";
 import Errors from "./types/errors";
 import { isConnected } from "./db";
+import fs = require("fs");
 
 const {MongoConnectionError} = Errors;
+
+const docsPath = "./documentation.pdf";
 
 export const defaultRouter = handler => async (req: Request, res: Response) => {
     const {body = {}, headers = {}, query = {}} = req;
@@ -35,3 +38,9 @@ export const checkConnection = () : void => {
         throw new MongoConnectionError(message);
     }
 }
+
+export const serveDocs = () : any => {
+    const file = fs.createReadStream(docsPath);
+    const stat = fs.statSync(docsPath);
+    return {file, stat};
+};

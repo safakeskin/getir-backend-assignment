@@ -1,0 +1,152 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This project is created for the case shared by Getir for backend developer job. Project code is shared at https://github.com/keskinsaf/getir-backend-assignment.",
+    "version": "1.0.0",
+    "title": "Getir-Backend-Assignment Solution by keskinsaf",
+    "contact": {
+      "email": "keskinsaf@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "keskinsaf-getir-assignment.herokuapp.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Getir-Backend-Assignment",
+      "description": "An API with several endpoints",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://github.com/keskinsaf/getir-backend-assignment"
+      }
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/record/findBetween": {
+      "post": {
+        "tags": [
+          "record"
+        ],
+        "summary": "fetch filtered records",
+        "description": "",
+        "operationId": "/record/findBetween",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Filters, each field is self descriptive",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request, see message and code for details",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "record"
+        ],
+        "summary": "Redirect to source code repository",
+        "description": "That endpoint is purposely implemented to redirect users to project's git repository",
+        "responses": {
+          "301": {
+            "description": "redirect"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RequestBody": {
+      "type": "object",
+      "required": [
+        "startDate",
+        "endDate",
+        "minCount",
+        "maxCount"
+      ],
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "example": "2017-01-26"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2017-01-28"
+        },
+        "minCount": {
+          "type": "number",
+          "example": 2700
+        },
+        "maxCount": {
+          "type": "number",
+          "example": 3000
+        }
+      }
+    },
+    "Record": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "example": "abcDEfGhi"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2017-01-27T01:38:19.181Z"
+        },
+        "totalCount": {
+          "type": "number",
+          "example": 2777
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0
+        },
+        "msg": {
+          "type": "string",
+          "example": "success"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Record"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

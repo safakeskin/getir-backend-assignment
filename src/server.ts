@@ -1,5 +1,6 @@
 import express = require("express");
 import recordRuter from "./routes/record";
+import {serveDocs} from "./util";
 
 const app = express();
 
@@ -10,13 +11,21 @@ app.use(express.json());
 
 app.use("/record", recordRuter);
 
-app.get('/', (req, res) => {
-    res.status(301).redirect(projectBaseUrl);
-});
+// inspired by https://stackoverflow.com/a/31106110/6013366
+app.get("/docs", (req, res) => {
+    try{
+        const {file, stat} = serveDocs();
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename=docs.pdf');
+        file.pipe(res);
+    }catch(e){
+        res.status(500).send("Error occurred at server.");
+    }
+})
 
-app.post('/', (req: express.Request, res: express.Response) => {
-    const message = "In order to interact with api, please read README.md";
-    res.send(message);
+app.get("/", (req, res) => {
+    res.status(301).redirect(projectBaseUrl);
 });
 
 export default app;

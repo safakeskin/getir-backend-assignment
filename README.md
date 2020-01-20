@@ -2,6 +2,9 @@
 
 This project is built in order to meet expectations of employer. It is requested to create a project that handles incoming request to a specific path with a specific pattern. Path and pattern will be explained below with testing and deployment configurations.
 
+*NOTE*
+You can read documentation.pdf in order to have an idea about general structure of project. `documentation.pdf` is generated with [swagger.io](https://swagger.io/). This file can be found in repository or can be downloaded from [docs](https://keskinsaf-getir-assignment.herokuapp.com/docs). Also, you can find `swagger.json` in repository and use it as template, or even make contribution to project.
+
 ## Project wide dependencies
 
 - [node.js](https://nodejs.org/) (version: 12.14.1) is used for developing app
